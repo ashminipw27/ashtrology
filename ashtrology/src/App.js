@@ -21,10 +21,10 @@ function App() {
       },
       body: JSON.stringify({ value: inputValue }),
     })
-      .then(response => response.json())
+      .then(response => response.text()) // Use response.text() to get the generated text as a string
       .then(data => {
         console.log('Response from server:', data);
-        setGeneratedText(data.message); // Update the generatedText state with the received message
+        setGeneratedText(data); // Update the generatedText state with the received text
       })
       .catch(error => console.log(error));
   };
